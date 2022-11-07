@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  app:
+    restart: unless-stopped
+    build: .
+    ports:
+      - 9005:9005/tcp
+    environment:
+      - Q_CONFIG_PATH=/etc/qbittorrent
+      - QCONF_BitTorrent_Session__AnonymousModeEnabled=true
+      - QCONF_BitTorrent_Session__GlobalDLSpeedLimit=65536
+      - QCONF_BitTorrent_Session__GlobalUPSpeedLimit=16384
+      - QCONF_Preferences_WebUI__Password=adminadmin
+      - QCONF_Preferences_WebUI__Username=admin
+    volumes:
+      - ./config:/etc/qbittorrent
+      # - ./custom-scripts:/etc/custom-scripts
