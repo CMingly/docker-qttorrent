@@ -4,7 +4,7 @@ services:
     restart: unless-stopped
     build: .
     ports:
-      - 9005:9005/tcp
+      - 8080:8080/tcp
     environment:
       - Q_CONFIG_PATH=/etc/qbittorrent
       - QCONF_BitTorrent_Session__AnonymousModeEnabled=true
